@@ -163,6 +163,6 @@
 				<version>${maven.release.version}</version>
 			</plugin>
 		</plugins>
-</build>
+	</build>
 
 </project>
