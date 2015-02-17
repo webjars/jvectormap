@@ -35,6 +35,7 @@
 		<wagon.version>1.0</wagon.version>
 		<antrun.version>1.8</antrun.version>
 		<yuicompressor.version>1.5.1</yuicompressor.version>
+		<jquery.version>2.1.3</jquery.version>
 
 		<mapTo.version>2.0.1</mapTo.version>
 		<upstream.version>master</upstream.version>
@@ -42,7 +43,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<upstream.url>https://github.com/scandio/jvectormap/archive</upstream.url>
 		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${mapTo.version}</destDir>
-		<jquery.version>2.1.3</jquery.version>
 	</properties>
 
 	<organization>
@@ -120,6 +120,7 @@
 										<include name="*.css" />
 										<include name="LICENSE-*" />
 										<include name="README.md" />
+										<include name="jvectormap.jquery.json" />
 									</fileset>
 								</move>
 							</target>
@@ -150,8 +151,38 @@
 							<inputDir>${project.build.directory}/${project.artifactId}-${upstream.version}</inputDir>
 							<includes>
 								<include>jquery-jvectormap.js</include>
-								<include>src/*.js</include>
-								<include>jvectormap.jquery.json</include>
+								<include>lib/jquery-mousewheel.js</include>
+								<include>src/jvectormap.js</include>
+								<include>src/abstract-element.js</include>
+								<include>src/abstract-canvas-element.js</include>
+								<include>src/abstract-shape-element.js</include>
+								<include>src/svg-element.js</include>
+								<include>src/svg-group-element.js</include>
+								<include>src/svg-canvas-element.js</include>
+								<include>src/svg-shape-element.js</include>
+								<include>src/svg-path-element.js</include>
+								<include>src/svg-circle-element.js</include>
+								<include>src/svg-image-element.js</include>
+								<include>src/svg-text-element.js</include>
+								<include>src/vml-element.js</include>
+								<include>src/vml-group-element.js</include>
+								<include>src/vml-canvas-element.js</include>
+								<include>src/vml-shape-element.js</include>
+								<include>src/vml-path-element.js</include>
+								<include>src/vml-circle-element.js</include>
+								<include>src/vector-canvas.js</include>
+								<include>src/simple-scale.js</include>
+								<include>src/ordinal-scale.js</include>
+								<include>src/numeric-scale.js</include>
+								<include>src/color-scale.js</include>
+								<include>src/legend.js</include>
+								<include>src/data-series.js</include>
+								<include>src/proj.js</include>
+								<include>src/map-object.js</include>
+								<include>src/region.js</include>
+								<include>src/marker.js</include>
+								<include>src/map.js</include>
+								<include>src/multimap.js</include>
 							</includes>
 						</aggregation>
 					</aggregations>
@@ -164,5 +195,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
