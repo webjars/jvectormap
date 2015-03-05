@@ -37,12 +37,11 @@
 		<yuicompressor.version>1.5.1</yuicompressor.version>
 		<jquery.version>2.1.3</jquery.version>
 
-		<mapTo.version>2.0.1</mapTo.version>
-		<upstream.version>master</upstream.version>
+		<upstream.version>2.0.1</upstream.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<upstream.url>https://github.com/scandio/jvectormap/archive</upstream.url>
-		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${mapTo.version}</destDir>
+		<upstream.url>https://github.com/bjornd/jvectormap/archive</upstream.url>
+		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
 	</properties>
 
 	<organization>
@@ -61,11 +60,11 @@
 	<licenses>
 		<license>
 			<name>GNU GPLv3</name>
-			<url>https://github.com/scandio/jvectormap/blob/master/LICENSE-GPL</url>
+			<url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-GPL</url>
 		</license>
 		<license>
 			<name>COMMERCIAL</name>
-			<url>https://github.com/scandio/jvectormap/blob/master/LICENSE-COMMERCIAL</url>
+			<url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-COMMERCIAL</url>
 		</license>
 	</licenses>
 

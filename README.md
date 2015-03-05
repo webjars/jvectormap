@@ -1,6 +1,6 @@
 # webjars-jvectormap
-WebJar package for scandio/jvectormap forked from bjornd/jvectormap
+WebJar package for bjornd/jvectormap
 
 More info: http://webjars.org
 
-Upstream: https://github.com/scandio/jvectormap
+Upstream: https://github.com/bjornd/jvectormap
