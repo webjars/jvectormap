@@ -1,205 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
-	<groupId>org.webjars</groupId>
-	<artifactId>jvectormap</artifactId>
-	<version>2.0.1</version>
-	<name>jVectorMap</name>
-	<description>WebJar for jVectorMap from bjornd/jvectormap</description>
-	<url>http://webjars.org</url>
+    <groupId>org.webjars</groupId>
+    <artifactId>jvectormap</artifactId>
+    <version>2.0.1-SNAPSHOT</version>
+    <name>jVectorMap</name>
+    <description>WebJar for jVectorMap from bjornd/jvectormap</description>
+    <url>http://webjars.org</url>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>${jquery.version}</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${jquery.version}</version>
+        </dependency>
+    </dependencies>
 
-	<scm>
-		<url>http://github.com/scandio/webjars-jvectormap</url>
-		<connection>scm:git@github.com/scandio/webjars-jvectormap.git</connection>
-		<developerConnection>scm:git:https://github.com/scandio/webjars-jvectormap.git</developerConnection>
-		<tag>jvectormap-2.0.1</tag>
-	</scm>
+    <scm>
+        <url>http://github.com/webjars/jvectormap</url>
+        <connection>scm:git@github.com/webjars/jvectormap.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/jvectormap.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
-	<properties>
-		<maven.release.version>2.4.2</maven.release.version>
-		<maven.gitexe.version>1.8.1</maven.gitexe.version>
-		<wagon.version>1.0</wagon.version>
-		<antrun.version>1.8</antrun.version>
-		<yuicompressor.version>1.5.1</yuicompressor.version>
-		<jquery.version>2.1.3</jquery.version>
+    <properties>
+        <wagon.version>1.0</wagon.version>
+        <antrun.version>1.8</antrun.version>
+        <yuicompressor.version>1.5.1</yuicompressor.version>
+        <jquery.version>2.1.3</jquery.version>
 
-		<upstream.version>2.0.1</upstream.version>
+        <upstream.version>2.0.1</upstream.version>
 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<upstream.url>https://github.com/bjornd/jvectormap/archive</upstream.url>
-		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-	</properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstream.url>https://github.com/bjornd/jvectormap/archive</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "jvectormap": "jquery.jvectormap.min"
+                },
+                "shim": {
+                    "jvectormap": ["jquery"]
+                }
+            }
+        </requirejs>
+    </properties>
 
-	<organization>
-		<name>Scandio GmbH</name>
-		<url>http://www.scandio.de</url>
-	</organization>
+    <organization>
+        <name>Scandio GmbH</name>
+        <url>http://www.scandio.de</url>
+    </organization>
 
-	<developers>
-		<developer>
-			<id>muck000</id>
-			<name>Clemens Tietze</name>
-			<email>clemens.tietze@scandio.de</email>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <id>muck000</id>
+            <name>Clemens Tietze</name>
+            <email>clemens.tietze@scandio.de</email>
+        </developer>
+    </developers>
 
-	<licenses>
-		<license>
-			<name>GNU GPLv3</name>
-			<url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-GPL</url>
-		</license>
-		<license>
-			<name>COMMERCIAL</name>
-			<url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-COMMERCIAL</url>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>GNU GPLv3</name>
+            <url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-GPL</url>
+        </license>
+        <license>
+            <name>COMMERCIAL</name>
+            <url>https://github.com/bjornd/jvectormap/blob/${upstream.version}/LICENSE-COMMERCIAL</url>
+        </license>
+    </licenses>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>wagon-maven-plugin</artifactId>
-				<version>${wagon.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>download-single</goal>
-						</goals>
-						<configuration>
-							<url>${upstream.url}</url>
-							<fromFile>${upstream.version}.zip</fromFile>
-							<toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>${antrun.version}</version>
-				<executions>
-					<execution>
-						<id>antrun-unzip</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo message="unzip archive" />
-								<unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>antrun-move</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo message="move resource files" />
-								<move todir="${destDir}">
-									<fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}">
-										<include name="*.css" />
-										<include name="LICENSE-*" />
-										<include name="README.md" />
-										<include name="jvectormap.jquery.json" />
-									</fileset>
-								</move>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>net.alchim31.maven</groupId>
-				<artifactId>yuicompressor-maven-plugin</artifactId>
-				<version>${yuicompressor.version}</version>
-				<executions>
-					<execution>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>compress</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<nosuffix>true</nosuffix>
-					<aggregations>
-						<aggregation>
-							<removeIncluded>true</removeIncluded>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>${wagon.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${upstream.url}</url>
+                            <fromFile>${upstream.version}.zip</fromFile>
+                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${antrun.version}</version>
+                <executions>
+                    <execution>
+                        <id>antrun-unzip</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>antrun-move</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="move resource files" />
+                                <move todir="${destDir}">
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}">
+                                        <include name="*.css" />
+                                        <include name="LICENSE-*" />
+                                        <include name="README.md" />
+                                        <include name="jvectormap.jquery.json" />
+                                    </fileset>
+                                </move>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>${yuicompressor.version}</version>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <nosuffix>true</nosuffix>
+                    <aggregations>
+                        <aggregation>
+                            <removeIncluded>true</removeIncluded>
 
-							<insertNewLine>true</insertNewLine>
-							<output>${destDir}/jquery.jvectormap.min.js</output>
-							<inputDir>${project.build.directory}/${project.artifactId}-${upstream.version}</inputDir>
-							<includes>
-								<include>jquery-jvectormap.js</include>
-								<include>lib/jquery-mousewheel.js</include>
-								<include>src/jvectormap.js</include>
-								<include>src/abstract-element.js</include>
-								<include>src/abstract-canvas-element.js</include>
-								<include>src/abstract-shape-element.js</include>
-								<include>src/svg-element.js</include>
-								<include>src/svg-group-element.js</include>
-								<include>src/svg-canvas-element.js</include>
-								<include>src/svg-shape-element.js</include>
-								<include>src/svg-path-element.js</include>
-								<include>src/svg-circle-element.js</include>
-								<include>src/svg-image-element.js</include>
-								<include>src/svg-text-element.js</include>
-								<include>src/vml-element.js</include>
-								<include>src/vml-group-element.js</include>
-								<include>src/vml-canvas-element.js</include>
-								<include>src/vml-shape-element.js</include>
-								<include>src/vml-path-element.js</include>
-								<include>src/vml-circle-element.js</include>
-								<include>src/vector-canvas.js</include>
-								<include>src/simple-scale.js</include>
-								<include>src/ordinal-scale.js</include>
-								<include>src/numeric-scale.js</include>
-								<include>src/color-scale.js</include>
-								<include>src/legend.js</include>
-								<include>src/data-series.js</include>
-								<include>src/proj.js</include>
-								<include>src/map-object.js</include>
-								<include>src/region.js</include>
-								<include>src/marker.js</include>
-								<include>src/map.js</include>
-								<include>src/multimap.js</include>
-							</includes>
-						</aggregation>
-					</aggregations>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>${maven.release.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>${maven.gitexe.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
+                            <insertNewLine>true</insertNewLine>
+                            <output>${destDir}/jquery.jvectormap.min.js</output>
+                            <inputDir>${project.build.directory}/${project.artifactId}-${upstream.version}</inputDir>
+                            <includes>
+                                <include>jquery-jvectormap.js</include>
+                                <include>lib/jquery-mousewheel.js</include>
+                                <include>src/jvectormap.js</include>
+                                <include>src/abstract-element.js</include>
+                                <include>src/abstract-canvas-element.js</include>
+                                <include>src/abstract-shape-element.js</include>
+                                <include>src/svg-element.js</include>
+                                <include>src/svg-group-element.js</include>
+                                <include>src/svg-canvas-element.js</include>
+                                <include>src/svg-shape-element.js</include>
+                                <include>src/svg-path-element.js</include>
+                                <include>src/svg-circle-element.js</include>
+                                <include>src/svg-image-element.js</include>
+                                <include>src/svg-text-element.js</include>
+                                <include>src/vml-element.js</include>
+                                <include>src/vml-group-element.js</include>
+                                <include>src/vml-canvas-element.js</include>
+                                <include>src/vml-shape-element.js</include>
+                                <include>src/vml-path-element.js</include>
+                                <include>src/vml-circle-element.js</include>
+                                <include>src/vector-canvas.js</include>
+                                <include>src/simple-scale.js</include>
+                                <include>src/ordinal-scale.js</include>
+                                <include>src/numeric-scale.js</include>
+                                <include>src/color-scale.js</include>
+                                <include>src/legend.js</include>
+                                <include>src/data-series.js</include>
+                                <include>src/proj.js</include>
+                                <include>src/map-object.js</include>
+                                <include>src/region.js</include>
+                                <include>src/marker.js</include>
+                                <include>src/map.js</include>
+                                <include>src/multimap.js</include>
+                            </includes>
+                        </aggregation>
+                    </aggregations>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.5</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
