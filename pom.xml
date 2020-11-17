@@ -10,7 +10,7 @@
 
     <groupId>org.webjars</groupId>
     <artifactId>jvectormap</artifactId>
-    <version>2.0.6-SNAPSHOT</version>
+    <version>2.0.5-1-SNAPSHOT</version>
     <name>jVectorMap</name>
     <description>WebJar for jVectorMap from bjornd/jvectormap</description>
     <url>http://webjars.org</url>
@@ -134,8 +134,107 @@
                             </target>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>download-maps</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-africa-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-world-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-asia-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-continents-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-europe-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-north_america-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-oceania-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-south_america-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ar-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-au-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-at-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-be-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ca-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-cn-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-co-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-dk-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr_regions_2016-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr_regions-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-de-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-in-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-it-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-it_regions-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-nl-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-nz-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-no-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-pl-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-pt-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ru_fd-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ru-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-za-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-kr-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-es-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-se-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ch-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-th-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-uk_regions-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-uk_countries-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-aea.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ve-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-il-chicago-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-ny-newyork-mill.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-africa-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-world-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-asia-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-continents-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-europe-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-north_america-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-oceania-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-south_america-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ar-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-au-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-at-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-be-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ca-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-cn-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-co-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-dk-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr_regions_2016-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-fr_regions-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-de-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-in-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-it-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-it_regions-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-nl-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-nz-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-no-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-pl-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-pt-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ru_fd-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ru-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-za-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-kr-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-es-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-se-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ch-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-th-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-uk_regions-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-uk_countries-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-aea.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ve-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-il-chicago-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-ny-newyork-merc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-aea.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-us-lcc.js" dest="${destDir}"/>
+                                <get src="https://jvectormap.com/js/jquery-jvectormap-ca-lcc.js" dest="${destDir}"/>
+                            </target>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>yuicompressor-maven-plugin</artifactId>
